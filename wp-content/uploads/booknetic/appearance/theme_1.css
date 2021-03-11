@@ -1,0 +1,69 @@
+#booknetic_theme_1 *
+{
+    font-family: 'Poppins', sans-serif !important;
+}
+#booknetic_theme_1
+{
+    height: 600px;
+}
+
+#booknetic_theme_1 .booknetic_appointment_steps
+{
+    background: #292d32;
+}
+
+#booknetic_theme_1 .booknetic_badge
+{
+    background: #4d545a;
+}
+#booknetic_theme_1 .booknetic_appointment_steps_footer_txt2
+{
+    color: #4d545a;
+}
+#booknetic_theme_1 .booknetic_step_title, #booknetic_theme_1 .booknetic_appointment_steps_footer_txt1
+{
+    color: #626c76;
+}
+
+#booknetic_theme_1 .booknetic_selected_step > .booknetic_badge::after
+{
+background-color: #6c70dc;
+}
+#booknetic_theme_1 .booknetic_selected_step .booknetic_step_title
+{
+color: #ffffff;
+}
+
+#booknetic_theme_1 .booknetic_active_step .booknetic_badge, #booknetic_theme_1 .booknetic_calendar_days > div > span > i[a], #booknetic_theme_1 .booknetic_btn_success
+{
+    background: #4fbf65;
+}
+#booknetic_theme_1 .booknetic_active_step .booknetic_step_title
+{
+    color: #4fbf65;
+}
+
+#booknetic_theme_1 .booknetic_btn_primary, #booknetic_theme_1 .booknetic_selected_time, #booknetic_theme_1   .booknetic_calendar_selected_day > div
+{
+    background: #6c70dc !important;
+    color: #ffffff !important;
+}
+#booknetic_theme_1 .booknetic_service_category, #booknetic_theme_1 .booknetic_service_extra_title, #booknetic_theme_1 .booknetic_times_title, #booknetic_theme_1 .booknetic_text_primary
+{
+    color: #6c70dc !important;
+}
+
+#booknetic_theme_1 .booknetic_appointment_container_header
+{
+    color: #292d32 !important;
+}
+
+#booknetic_theme_1 .booknetic_service_card_selected, #booknetic_theme_1 .booknetic_card_selected, #booknetic_theme_1 .booknetic_service_extra_card_selected, #booknetic_theme_1 .booknetic_payment_method_selected
+{
+    border-color: #53d56c !important;
+}
+
+#booknetic_theme_1 .booknetic_service_card_price, #booknetic_theme_1 .booknetic_service_extra_card_price, #booknetic_theme_1 .booknetic_confirm_details_price:not(.booknetic_discount_price)
+{
+    color: #53d56c !important;
+}

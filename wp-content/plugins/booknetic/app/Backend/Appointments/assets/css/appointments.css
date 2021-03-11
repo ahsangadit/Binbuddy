@@ -1,0 +1,10 @@
+
+#fs_data_table_div .invoice-icon
+{
+	padding-left: 15px;
+}
+
+#fs_data_table_div td[data-column="payment"]
+{
+	cursor: pointer;
+}

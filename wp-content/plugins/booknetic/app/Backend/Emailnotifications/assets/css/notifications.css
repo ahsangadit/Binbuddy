@@ -1,0 +1,147 @@
+.fs_notifications_list .nav-link
+{
+	padding: 23px 0px 13px;
+	margin-left: 25px;
+}
+
+.fs_notifications_list .text-primary
+{
+	margin-left: 25px;
+}
+
+.fsn_shorttags_element
+{
+	font-size: 14px;
+	color: #9ba6af;
+	margin-top: 15px;
+	cursor: pointer;
+}
+.fsn_shorttags_element:hover
+{
+	color: #2f3338;
+}
+.fs_notifications_list > .nav-tabs
+{
+	border-bottom: 1px solid #e3eaf3;
+}
+.fs_notification_element
+{
+	margin: 10px 25px;
+	height: 44px;
+	background: #FFF;
+	color: #828F9A;
+	margin-bottom: 10px;
+	padding: 10px 15px;
+	border: 1px solid #e3eaf3;
+	cursor: pointer;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	transition: all 0.3s ease-in 0s;
+}
+.fs_notification_element:after
+{
+	content: '';
+	clear: both;
+	display: table;
+}
+.fs_notification_element.fsn_active
+{
+	background: #53D56C;
+	color: #FFF;
+	border-color: #53D56C;
+}
+
+.fsn_title
+{
+	max-width: calc(100% - 40px);
+	white-space: nowrap;
+	overflow: hidden;
+	float: left;
+	font-size: 14px;
+}
+.fsn_switch_btn
+{
+	padding: 1px 0;
+	float: right;
+}
+
+#send_test_email_btn > img
+{
+	vertical-align: bottom;
+	margin-right: 5px;
+}
+
+.fsn_active .fs_onoffswitch-checkbox:checked + .fs_onoffswitch-label
+{
+	background-color: #FFF;
+}
+
+.fsn_active .fs_onoffswitch-checkbox:checked + .fs_onoffswitch-label:before
+{
+	background-color: #53D56C;
+}
+
+.custom_field_key_class
+{
+	border: 1px dashed #9ba6af;
+	padding: 0 2px;
+	margin: 0 2px;
+	font-weight: 600;
+}
+
+#notification_body
+{
+	min-height: 150px;
+}
+
+
+#notification_body_rt .note-toolbar
+{
+	background: #FFF;
+	border-color: #e3eaf3 !important;
+}
+#notification_body_rt .note-editor
+{
+	border-radius: 2px !important;
+	border-color: #e3eaf3 !important;
+}
+#notification_body_rt .note-btn
+{
+	height: 31px;
+	border-color: #e3eaf3;
+	border-radius: 2px !important;
+	color: #292d32;
+}
+#notification_body_rt .dropdown-toggle::after
+{
+	display: none;
+}
+#notification_body_rt .note-modal-footer
+{
+	padding: 0px 30px;
+
+}
+#notification_body_rt .note-form-group
+{
+	padding-bottom: 0 !important;
+}
+#notification_body_rt label > input[type='checkbox']
+{
+	margin-right: 10px;
+}
+#notification_body_rt .note-editor.fullscreen
+{
+	background: #FFF;
+}
+#notification_body_rt .note-editor .note-toolbar .note-dropdown-menu
+{
+	min-width: 190px;
+}
+#notification_body_rt .note-statusbar
+{
+	border-color: #e3eaf3;
+	background: #FFF;
+}

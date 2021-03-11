@@ -1,0 +1,120 @@
+2021-03-10T08:53:32+00:00 CRITICAL syntax error, unexpected '$oupon_code' (T_VARIABLE), expecting ')' in C:\xampp\htdocs\binbuddy\wp-content\themes\Divi\functions.php on line 8616
+
+2021-03-10T08:53:39+00:00 CRITICAL syntax error, unexpected '$oupon_code' (T_VARIABLE), expecting ')' in C:\xampp\htdocs\binbuddy\wp-content\themes\Divi\functions.php on line 8616
+
+2021-03-10T08:53:47+00:00 CRITICAL syntax error, unexpected '$oupon_code' (T_VARIABLE), expecting ')' in C:\xampp\htdocs\binbuddy\wp-content\themes\Divi\functions.php on line 8616
+
+2021-03-10T11:26:23+00:00 CRITICAL require(): Failed opening required 'C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon/includes/class-payment-plugin.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php on line 73
+
+2021-03-10T11:26:29+00:00 CRITICAL require(): Failed opening required 'C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon/includes/class-payment-plugin.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php on line 73
+
+2021-03-10T11:26:31+00:00 CRITICAL require(): Failed opening required 'C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon/includes/class-payment-plugin.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php on line 73
+
+2021-03-10T11:27:51+00:00 CRITICAL require(): Failed opening required 'C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon/includes/class-payment-plugin.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php on line 73
+
+2021-03-10T11:27:58+00:00 CRITICAL require(): Failed opening required 'C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon/includes/class-payment-plugin.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php on line 73
+
+2021-03-10T11:27:58+00:00 CRITICAL require(): Failed opening required 'C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon/includes/class-payment-plugin.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php on line 73
+
+2021-03-10T11:30:55+00:00 CRITICAL Uncaught Error: Class 'Payment_Plugin_Loader' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:127
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(77): Billbuddy_Coupon->load_dependencies()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(670): include_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(58): activate_plugin('billbuddy-coupo...', 'http://localhos...', false)
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 127
+
+2021-03-10T11:31:01+00:00 CRITICAL Uncaught Error: Class 'Payment_Plugin_Loader' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:127
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(77): Billbuddy_Coupon->load_dependencies()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(2299): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(191): plugin_sandbox_scrape('billbuddy-coupo...')
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 127
+
+2021-03-10T11:31:02+00:00 CRITICAL Uncaught Error: Class 'Payment_Plugin_Loader' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:127
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(77): Billbuddy_Coupon->load_dependencies()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(2299): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(191): plugin_sandbox_scrape('billbuddy-coupo...')
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 127
+
+2021-03-10T11:32:14+00:00 CRITICAL Uncaught Error: Class 'Billbuddy_Coupon_Loader' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:127
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(77): Billbuddy_Coupon->load_dependencies()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(670): include_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(58): activate_plugin('billbuddy-coupo...', 'http://localhos...', false)
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 127
+
+2021-03-10T11:32:20+00:00 CRITICAL Uncaught Error: Class 'Billbuddy_Coupon_Loader' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:127
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(77): Billbuddy_Coupon->load_dependencies()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(2299): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(191): plugin_sandbox_scrape('billbuddy-coupo...')
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 127
+
+2021-03-10T11:32:22+00:00 CRITICAL Uncaught Error: Class 'Billbuddy_Coupon_Loader' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:127
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(77): Billbuddy_Coupon->load_dependencies()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(2299): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(191): plugin_sandbox_scrape('billbuddy-coupo...')
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 127
+
+2021-03-10T11:33:36+00:00 CRITICAL Uncaught Error: Class 'Billbuddy_Coupon_Admin' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:157
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(79): Billbuddy_Coupon->define_admin_hooks()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(670): include_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(58): activate_plugin('billbuddy-coupo...', 'http://localhos...', false)
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 157
+
+2021-03-10T11:33:43+00:00 CRITICAL Uncaught Error: Class 'Billbuddy_Coupon_Admin' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:157
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(79): Billbuddy_Coupon->define_admin_hooks()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(2299): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(191): plugin_sandbox_scrape('billbuddy-coupo...')
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 157
+
+2021-03-10T11:33:44+00:00 CRITICAL Uncaught Error: Class 'Billbuddy_Coupon_Admin' not found in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php:157
+Stack trace:
+#0 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php(79): Billbuddy_Coupon->define_admin_hooks()
+#1 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(86): Billbuddy_Coupon->__construct()
+#2 C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php(90): run_payment_plugin()
+#3 C:\xampp\htdocs\binbuddy\wp-admin\includes\plugin.php(2299): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\binbuddy\wp-admin\plugins.php(191): plugin_sandbox_scrape('billbuddy-coupo...')
+#5 {main}
+  thrown in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\includes\class-billbuddy-coupon.php on line 157
+
+2021-03-10T11:58:33+00:00 CRITICAL Cannot redeclare activate_payment_plugin() (previously declared in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php:45) in C:\xampp\htdocs\binbuddy\wp-content\plugins\payment-plugin\payment-plugin.php on line 55
+
+2021-03-10T11:58:39+00:00 CRITICAL Cannot redeclare activate_payment_plugin() (previously declared in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php:45) in C:\xampp\htdocs\binbuddy\wp-content\plugins\payment-plugin\payment-plugin.php on line 55
+
+2021-03-10T11:58:40+00:00 CRITICAL Cannot redeclare activate_payment_plugin() (previously declared in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php:45) in C:\xampp\htdocs\binbuddy\wp-content\plugins\payment-plugin\payment-plugin.php on line 55
+
+2021-03-10T11:59:18+00:00 CRITICAL Cannot redeclare activate_payment_plugin() (previously declared in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php:45) in C:\xampp\htdocs\binbuddy\wp-content\plugins\payment-plugin\payment-plugin.php on line 55
+
+2021-03-10T11:59:23+00:00 CRITICAL Cannot redeclare activate_payment_plugin() (previously declared in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php:45) in C:\xampp\htdocs\binbuddy\wp-content\plugins\payment-plugin\payment-plugin.php on line 55
+
+2021-03-10T11:59:24+00:00 CRITICAL Cannot redeclare activate_payment_plugin() (previously declared in C:\xampp\htdocs\binbuddy\wp-content\plugins\billbuddy-coupon\billbuddy-coupon.php:45) in C:\xampp\htdocs\binbuddy\wp-content\plugins\payment-plugin\payment-plugin.php on line 55
+

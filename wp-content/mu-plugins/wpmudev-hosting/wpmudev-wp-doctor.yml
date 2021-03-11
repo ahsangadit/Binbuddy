@@ -1,0 +1,88 @@
+# This file comes with "custom-wp-doctor".
+#
+# Author:      Konstantinos Xenos
+# Author URI:  https://xkon.gr
+# Repo URI:    https://github.com/mrxkon/custom-wp-doctor/
+# License:     GPLv2 or later
+# License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+get-siteurl:
+  class: Custom_WP_Doctor_Get_Siteurl
+  require: wpmudev-wp-doctor-commands.php
+get-home:
+  class: Custom_WP_Doctor_Get_Home
+  require: wpmudev-wp-doctor-commands.php
+get-upload-path:
+  class: Custom_WP_Doctor_Get_Upload_Path
+  require: wpmudev-wp-doctor-commands.php
+core-stats:
+  class: Custom_WP_Doctor_Core_Stats
+  require: wpmudev-wp-doctor-commands.php
+language-update:
+  check: Language_Update
+plugin-stats:
+  class: Custom_WP_Doctor_Plugin_Stats
+  require: wpmudev-wp-doctor-commands.php
+mu-plugin-list:
+  class: Custom_WP_Doctor_MuPlugin_List
+  require: wpmudev-wp-doctor-commands.php
+dropin-list:
+  class: Custom_WP_Doctor_DropIn_List
+  require: wpmudev-wp-doctor-commands.php
+wpmudev-plugins:
+  class: Custom_WP_Doctor_Plugin_Check
+  require: wpmudev-wp-doctor-commands.php
+theme-stats:
+  class: Custom_WP_Doctor_Theme_Stats
+  require: wpmudev-wp-doctor-commands.php
+user-stats:
+  class: Custom_WP_Doctor_User_Stats
+  require: wpmudev-wp-doctor-commands.php
+role-stats:
+  class: Custom_WP_Doctor_Role_Stats
+  require: wpmudev-wp-doctor-commands.php
+posts-stats:
+  class: Custom_WP_Doctor_Posts_Stats
+  require: wpmudev-wp-doctor-commands.php
+autoload-stats:
+  class: Custom_WP_Doctor_Autoload_Report
+  require: wpmudev-wp-doctor-commands.php
+ttfb:
+  class: Custom_WP_Doctor_TTFB
+  require: wpmudev-wp-doctor-commands.php
+cache-headers:
+  class: Custom_WP_Doctor_Cache_Headers
+  require: wpmudev-wp-doctor-commands.php
+verify-core-checksums:
+  class: Custom_WP_Doctor_Verify_Core_Checksums
+  require: wpmudev-wp-doctor-commands.php
+cron-stats:
+  class: Custom_WP_Doctor_Cron_Stats
+  require: wpmudev-wp-doctor-commands.php
+constants:
+  class: Custom_WP_Doctor_Constants
+  require: wpmudev-wp-doctor-commands.php
+log-scan:
+  class: Custom_WP_Doctor_Log_Scan
+  require: wpmudev-wp-doctor-commands.php
+regex-eval-b64decode:
+  class: Custom_WP_Doctor_Regex_Scan
+  require: wpmudev-wp-doctor-commands.php
+  options:
+    regex: eval\(.*base64_decode\(.*
+    file_extension: php
+regex-wp-cache-flush:
+  class: Custom_WP_Doctor_Regex_Scan
+  require: wpmudev-wp-doctor-commands.php
+  options:
+    regex: wp_cache_flush\(
+    file_extension: php
+    exclude: wp-admin,wp-includes,object-cache.php,wp-hummingbird,hummingbird-performance
+php-in-uploads-dir:
+  class: Custom_WP_Doctor_PHP_In_Upload
+  require: wpmudev-wp-doctor-commands.php
+  options:
+    exclude: wp-defender,defender-security,snapshot-backups
+find-symlinks:
+  class: Custom_WP_Doctor_Find_Symlinks
+  require: wpmudev-wp-doctor-commands.php

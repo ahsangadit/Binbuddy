@@ -1,0 +1,36 @@
+.fs-modal .bordered-light-portlet
+{
+	border: 1px dashed #c0d6df;
+
+	padding: 30px;
+
+	-webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.05);
+}
+
+.fs-modal label
+{
+	font-size: 16px;
+	color: #292D32;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+.fs-modal .form-control-plaintext
+{
+	color: #828F9A;
+	font-size: 14px;
+	padding-top: 0;
+}
+
+.fs-modal .pay_btn
+{
+	height: 40px;
+	width: 50px;
+}
+
+.fs-modal td.text-center
+{
+	width: 50px;
+}
