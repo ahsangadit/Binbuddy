@@ -8611,3 +8611,107 @@ function change_coupon_discount($discount, $discounting_amount, $cart_item, $sin
 	return $discount;
 }
 add_filter('woocommerce_coupon_get_discount_amount', 'change_coupon_discount', 10, 5);
+
+
+add_action( 'woocommerce_thankyou', 'save_coupon_on_checkout' , 5 );
+function save_coupon_on_checkout( $order_id ) {
+   $login_user = get_current_user_id();
+   $order = wc_get_order( $order_id );
+   $order_email = $order->billing_email;
+   $email = email_exists( $order_email );  
+   $user = username_exists( $order_email );
+   $used_coupon = $order->get_coupon_codes();
+   if(!empty($used_coupon)){
+      update_user_meta($login_user, 'user_coupon', $order->get_coupon_codes());
+   }
+
+   if( $user == false && $email == false ){    
+	$random_password = wp_generate_password();
+    $user_id = wp_create_user( $order_email, $random_password, $order_email );
+
+	    update_user_meta( $user_id, 'guest', 'yes' );
+		update_user_meta( $user_id, 'billing_address_1', $order->billing_address_1 );
+		update_user_meta( $user_id, 'billing_address_2', $order->billing_address_2 );
+		update_user_meta( $user_id, 'billing_city', $order->billing_city );
+		update_user_meta( $user_id, 'billing_company', $order->billing_company );
+		update_user_meta( $user_id, 'billing_country', $order->billing_country );
+		update_user_meta( $user_id, 'billing_email', $order->billing_email );
+		update_user_meta( $user_id, 'billing_first_name', $order->billing_first_name );
+		update_user_meta( $user_id, 'billing_last_name', $order->billing_last_name );
+		update_user_meta( $user_id, 'billing_phone', $order->billing_phone );
+		update_user_meta( $user_id, 'billing_postcode', $order->billing_postcode );
+		update_user_meta( $user_id, 'billing_state', $order->billing_state );
+	
+		update_user_meta( $user_id, 'shipping_address_1', $order->shipping_address_1 );
+		update_user_meta( $user_id, 'shipping_address_2', $order->shipping_address_2 );
+		update_user_meta( $user_id, 'shipping_city', $order->shipping_city );
+		update_user_meta( $user_id, 'shipping_company', $order->shipping_company );
+		update_user_meta( $user_id, 'shipping_country', $order->shipping_country );
+		update_user_meta( $user_id, 'shipping_first_name', $order->shipping_first_name );
+		update_user_meta( $user_id, 'shipping_last_name', $order->shipping_last_name );
+		update_user_meta( $user_id, 'shipping_method', $order->shipping_method );
+		update_user_meta( $user_id, 'shipping_postcode', $order->shipping_postcode );
+		update_user_meta( $user_id, 'shipping_state', $order->shipping_state ); 
+     $used_coupon = $order->get_coupon_codes();
+   if(!empty($used_coupon)){
+      update_user_meta($user_id, 'user_coupon', $order->get_coupon_codes());
+   }
+ }
+}
+
+add_action('woocommerce_before_checkout_form','QuadLayers_apply_coupon_cart_values');
+function QuadLayers_apply_coupon_cart_values(){ 
+	$user_id = get_current_user_id();
+	$coupon  = get_user_meta($user_id, 'user_coupon', true);
+       if(!empty($coupon)):
+            WC()->cart->apply_coupon( $coupon[0] );
+            wc_print_notices();             
+        endif;
+}
+
+add_filter( 'woocommerce_checkout_fields' , 'checkout_address_details_fields' );
+function checkout_address_details_fields( $fields ) {
+	$fields['billing']['has_reference'] = array(
+		'type' => 'checkbox',
+		'label' => __('Refered Address', 'woocommerce'),
+		'required' => false,
+		'class' => array('form-row-wide has_reference'),
+		'clear' => true,
+		'priority' => 60, // <===== Here
+		);
+		$fields['billing']['refered_address_details'] = array(
+		'label' => __('Refered Address', 'woocommerce'),
+		'placeholder' => _x('Enter the reference Address', 'placeholder', 'woocommerce'),
+		'required' => false,
+		'class' => array('form-row-wide referrence'),
+		'clear' => true,
+		'priority' => 60, // <===== Here
+		);
+
+?>
+	<script>
+	jQuery(function($) {
+		jQuery("#refered_address_details_field").hide();
+		jQuery("#has_reference").click(function() {
+			if(jQuery(this).is(":checked")) {
+				jQuery("#refered_address_details_field").show();
+			}else{
+				jQuery("#refered_address_details_field").hide();
+			}
+		});
+    });
+	</script>
+<?php
+    return $fields;
+}
+
+function custom_checkout_update_order_meta( $order_id, $posted ) {
+    if ( isset( $posted['has_reference'] ) ) {
+        update_post_meta( $order_id, 'has_reference', $posted['has_reference'] );
+    }
+    if ( isset( $posted['refered_address_details'] ) ) {
+        update_post_meta( $order_id, 'refered_address_details', $posted['refered_address_details'] );
+    }
+}
+add_action( 'woocommerce_checkout_update_order_meta', 'custom_checkout_update_order_meta', 10, 2 );
+
