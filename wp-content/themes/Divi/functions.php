@@ -8616,14 +8616,51 @@ add_filter('woocommerce_coupon_get_discount_amount', 'change_coupon_discount', 1
 
 add_action( 'woocommerce_thankyou', 'save_coupon_on_checkout' , 5 );
 function save_coupon_on_checkout( $order_id ) {
-	$login_user = get_current_user_id();
 	$order = wc_get_order( $order_id );
+	$login_user = get_user_by( 'email', $order->billing_email );
 	$order_email = $order->billing_email;
 	$email = email_exists( $order_email );
 	$user = username_exists( $order_email );
 	$used_coupon = $order->get_coupon_codes();
 	if(!empty($used_coupon)){
 		update_user_meta($login_user, 'user_coupon', $order->get_coupon_codes());
+	}
+
+	if(!empty($login_user)){
+		update_post_meta($order_id, '_customer_user',$login_user->data->ID);
+		$customer_orders = get_posts( array(
+			                              'meta_key'    => '_customer_user',
+			                              'meta_value'  => $login_user->data->ID,
+			                              'post_type'   => 'shop_order',
+			                              'post_status' => array_keys( wc_get_order_statuses() ),
+			                              'numberposts' => -1
+		                              ));
+		foreach($customer_orders as $get_order){
+			if($get_order->ID < $order_id) {
+				$order_notes[] = get_private_order_notes( $get_order->ID );
+			}
+		}
+		$order_notes = array_filter($order_notes);
+
+		foreach($order_notes as $note) {
+			foreach($note as $content) {
+				$note_content[] = $content['note_content'];
+			}
+		}
+
+		if(!empty($note_content)) {
+			foreach($note_content as $key => $val) {
+				$respond[] = '<p><strong>Admin Note '.++$key.':</strong> ' . $val . '</p>';
+			}
+
+			$respond =  implode("<br>",$respond);
+			$to = 'ahsan.amin334@gmail.com';
+			$subject = 'Private Note Reminder For the User: '.$login_user->data->user_login;
+			$body = $respond;
+			$headers = array('Content-Type: text/html; charset=UTF-8');
+			wp_mail( $to, $subject, $body, $headers );
+		}
+
 	}
 	$user_data = array(
 		'meta_key' => 'billing_address_1',
@@ -8747,6 +8784,7 @@ function get_private_order_notes( $order_id){
         FROM $table_perfixed
         WHERE  `comment_post_ID` = $order_id
         AND  `comment_type` LIKE  'order_note'
+        AND  `comment_author` = 'Developer'
     ");
 
 	foreach($results as $note){
@@ -8761,16 +8799,6 @@ function get_private_order_notes( $order_id){
 }
 
 function the_dramatist_fire_on_wp_initialization() {
-//    $user_id = get_current_user_id();
-//    var_dump($user_id);
-	//	$order_notes = get_private_order_notes( 881 );
-//	var_dump($order_notes);
-//	foreach($order_notes as $note) {
-//		$note_id      = $note['note_id'];
-//		$note_date    = $note['note_date'];
-//		$note_author  = $note['note_author'];
-//		$note_content = $note['note_content'];
-//	}
 }
 add_action( 'init', 'the_dramatist_fire_on_wp_initialization' );
 
@@ -8796,4 +8824,52 @@ function custom_override_checkout_fields( $fields ) {
 	$fields['billing']['billing_address_1']['placeholder'] = __( 'Your Address' );
 	$fields['billing']['billing_address_2']['placeholder'] = __('Referral Address' );
 	return $fields;
+}
+
+add_filter( 'woocommerce_admin_billing_fields' , 'change_order_admin_billing_fields' );
+function change_order_admin_billing_fields( $fields ) {
+	$fields['address_2'] = array( 'label' => __('Referral Address', 'woocommerce') );
+	return $fields;
+}
+
+function global_notice_meta_box() {
+
+	add_meta_box(
+		'global-notice',
+		__( 'Admin Old Private Notes For The Customer', 'sitepoint' ),
+		'global_notice_meta_box_callback'
+	);
+
+}
+
+add_action( 'add_meta_boxes_shop_order', 'global_notice_meta_box' );
+
+function global_notice_meta_box_callback( $post ) {
+
+	$order = wc_get_order( $post->ID ); // 541 is your order ID
+	$user_id = $order->get_customer_id();
+	$customer_orders = get_posts( array(
+		                              'meta_key'    => '_customer_user',
+		                              'meta_value'  => $user_id,
+		                              'post_type'   => 'shop_order',
+		                              'post_status' => array_keys( wc_get_order_statuses() ),
+		                              'numberposts' => -1
+	                              ));
+
+	foreach($customer_orders as $get_order){
+		if($get_order->ID < $post->ID) {
+			$order_notes[] = get_private_order_notes( $get_order->ID );
+		}
+	}
+	$order_notes = array_filter($order_notes);
+	foreach($order_notes as $note) {
+		foreach($note as $content) {
+			$note_content[] = $content['note_content'];
+		}
+	}
+	if(!empty($note_content)) {
+		foreach($note_content as $key => $val) {
+			echo '<p><strong>Admin Note '.++$key.':</strong> ' . $val . '</p>';
+		}
+	}
 }

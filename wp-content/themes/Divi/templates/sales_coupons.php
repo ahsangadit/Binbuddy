@@ -8,21 +8,18 @@ function my_custom_fonts()
 	/*ads-sidebar*/
 	/*popup-open-menu*/
 	echo '<style>
-
         table.watchlist-table {
             border-collapse: collapse;
             border: 1px solid;
             width: 800px;
             text-align: center;
         }
-
         table.watchlist-table th {
             padding: 10px;
             color: #fff;
             background-color: #212529;
             border-color: #32383e;
         }
-
         table.watchlist-table td {
             border: 1px solid #c3c3c4;
             padding: .75rem;
@@ -42,7 +39,6 @@ function my_custom_fonts()
         td.serial-no{
             font-weight: 700;
         }
-
         table.watchlist-table tr {
             background-color: #f9f9f9;
         }
@@ -119,7 +115,6 @@ function my_custom_fonts()
 
 
 	echo '<script>
-
     jQuery(function($){
  
         //        $("select#maxRows").change(function(){
@@ -128,7 +123,6 @@ function my_custom_fonts()
         //        });
                 
         getPagination("#auction-watcher-table");
-
         function getPagination(table) {
           var lastPage = 1;
         
@@ -233,10 +227,8 @@ function my_custom_fonts()
         
           // END OF PAGINATION
         }
-
         function limitPagging(){
             // alert($(\'.pagination li\').length)
-
             if($(\'.pagination li\').length > 7 ){
                     if( $(\'.pagination li.active\').attr(\'data-page\') <= 3 ){
                     $(\'.pagination li:gt(5)\').hide();
@@ -247,19 +239,14 @@ function my_custom_fonts()
                     $(\'.pagination [data-page="next"]\').show();
                     for( let i = ( parseInt($(\'.pagination li.active\').attr(\'data-page\'))  -2 )  ; i <= ( parseInt($(\'.pagination li.active\').attr(\'data-page\'))  + 2 ) ; i++ ){
                         $(\'.pagination [data-page="\'+i+\'"]\').show();
-
                     }
-
                 }
             }
         }
-
         $(function() {
           // Just to append id number for each row
           $(\'table#auction-watcher-table  tr:eq(0)\').prepend(\'<th> ID </th>\');
-
           var id = 0;
-
           $(\'table#auction-watcher-table  tr:gt(0)\').each(function() {
             id++;
             $(this).prepend(\'<td>\' + id + \'</td>\');
@@ -267,10 +254,28 @@ function my_custom_fonts()
         });
         
     });
-
  
    </script>';
 
+}
+
+function uniqueAssocArray($array, $uniqueKey) {
+	$uniqueKeys = array();
+
+	foreach ($array as $key => $item) {
+		$groupBy = $item[$uniqueKey];
+
+		if (isset( $uniqueKeys[$groupBy] ))
+		{
+			$replace= $item;
+        }
+		else{
+			$replace=$item;
+		}
+		if ($replace) $uniqueKeys[$groupBy] = $item;
+
+	}
+	return $uniqueKeys;
 }
 
 
@@ -321,7 +326,7 @@ function woo_sales_coupon_fun()
 		}
 	}
 
-
+	$data = uniqueAssocArray($total_coupons_data,'code');
 	ob_start();
 	?>
 	<div class="row">
@@ -353,7 +358,7 @@ function woo_sales_coupon_fun()
 				<?php
 				$i = 0;
 
-				foreach ($total_coupons_data as $k => $val){
+				foreach ($data as $k => $val){
 					?>
 					<tr>
 						<td><?= $val['code'] ?></td>
@@ -364,33 +369,7 @@ function woo_sales_coupon_fun()
 					<?php
 				}
 
-				/*
-				foreach ($users as $key => $val):
-					$data = get_user_meta( $val->ID, "woo_ua_auction_watch");
-					$user = get_user_by('id',$val->ID);
 
-
-					foreach ($data as $k => $v) {
-
-						$product = get_post($v);
-
-						if ('publish' == get_post_status($product->ID)):
-							$i++;
-							?>
-							<tr>
-								<td><?= ucwords($user->display_name); ?></td>
-								<td class="img-section">
-									<img src="<?= get_the_post_thumbnail_url($product->ID, 'full') ?>"
-										 class="image-product-auction" alt="">
-									<span> <a href="<?= get_permalink($product->ID); ?>"><?= ucfirst($product->post_title); ?></a> </span>
-								</td>
-							</tr>
-						<?php
-
-						endif;
-					}
-				endforeach;
-				*/
 				?>
 
 				</tbody>
@@ -433,4 +412,3 @@ function sales_coupon_callback()
 }
 
 add_action('admin_menu', 'register_sales_coupons', 99);
-
